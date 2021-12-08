@@ -43,3 +43,13 @@ function addBook(event){
 
 
 }
+//page reload
+document.addEventListener('DomContentLoaded', getBooks)
+
+function getBooks (){
+    const books = ls.getData('books')
+
+    books.forEach(function (booksFromLS){
+        ui.addBook(booksFromLS)
+    })
+}
