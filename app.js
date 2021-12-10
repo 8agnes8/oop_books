@@ -7,7 +7,7 @@ const form = document.querySelector('#book-form')
 form.addEventListener('submit' , addBook)
 
 
-//addbook function
+//addBook function
 function addBook(event){
     //get form data from input
     const title = ui.title.value
@@ -58,7 +58,7 @@ function filterBook(event){
 
 
 
-//delbook
+//delBook
 function delBook(event){
     if(event.target.textContent === 'X'){
             const book = ui.getBook(event.target)

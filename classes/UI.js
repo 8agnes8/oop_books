@@ -32,7 +32,7 @@ delBook(click){
         return false
     }
 }
-filterData(search){
+filterData(filter){
     let bookListData = document.querySelectorAll('.book-row')
     bookListData.forEach(function (trContent){
         if(trContent.textContent.toLowerCase().indexOf(filter) !== -1){
