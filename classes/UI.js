@@ -8,6 +8,7 @@ class UI {
     }
 addBook(book){
     const tr = document.createElement('tr')
+    tr.setAttribute('class', 'book-row')
     tr.innerHTML= `<td>${book.title}</td>
      <td>${book.author}</td>
      <td>${book.isbn}</td>
@@ -30,5 +31,15 @@ delBook(click){
 } else {
         return false
     }
+}
+filterData(search){
+    let bookListData = document.querySelectorAll('.book-row')
+    bookListData.forEach(function (trContent){
+        if(trContent.textContent.toLowerCase().indexOf(filter) !== -1){
+            trContent.style.display = '';
+        } else {
+            trContent.style.display = 'none'
+        }
+    })
 }
 }

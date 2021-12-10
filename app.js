@@ -13,6 +13,7 @@ function addBook(event){
     const title = ui.title.value
     const author = ui.author.value
     const isbn = ui.isbn.value
+
     //create book object with user data
     const book = new Book(title, author, isbn)
 
@@ -24,15 +25,8 @@ function addBook(event){
 
 
 
-    const tr = document.createElement('tr')
-    const trContent = `<td>${book.title}</td>
-     <td>${book.author}</td>
-     <td>${book.isbn}</td>
-     <td><a href="#">X</a></td>
-   `
-    tr.innerHTML = trContent
-    const bookList = document.querySelector('#book-list')
-    bookList.appendChild(tr)
+
+
 
 
     //clear from input
@@ -45,9 +39,24 @@ function addBook(event){
 }
 //page reload
 document.addEventListener('DomContentLoaded', getBooks)
+
 //books table click event
-bookList = document.querySelector('#book-list')
-bookList.addEventListener('click'. delBook)
+const bookList = document.querySelector('#book-list')
+bookList.addEventListener('click', delBook)
+
+
+
+// book filter keyboard event
+const filter = document.querySelector('#filter')
+filter.addEventListener('keyup', filterBook)
+
+function filterBook(event){
+    let filter = event.title.value.toLowerCase()
+    ui.filterData(filter)
+}
+
+
+
 
 //delbook
 function delBook(event){
