@@ -13,7 +13,22 @@ addBook(book){
      <td>${book.isbn}</td>
      <td><a href="#">X</a></td>
    `
-    const bookList = document.querySelector('#book-list')
-    bookList.appendChild(tr)
+    this.bookList.appendChild(tr)
+}
+getBook(click){
+    let isbn = click.target.parentElement.previousElementSibling.textContent
+    let author = click.target.parentElement.previousElementSibling.previousElementSibling.textContent
+    let title = click.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent
+    const book = new Book (title, author, isbn)
+    return book
+
+}
+delBook(click){
+    if (confirm('are you sure?')){
+        click.parentElement.parentElement.remove()
+        return true
+} else {
+        return false
+    }
 }
 }
